@@ -37,6 +37,14 @@
         {{- next_inject('sidebar') }}
       </div>
 
+      <!-- 音乐播放器 -->
+      <div>
+        {% if theme.background_music %}
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52
+    src="{{ theme.background_music }}"></iframe>
+        {% endif %}
+      </div>
+
       {%- if theme.back2top.enable and theme.back2top.sidebar %}
         <div class="back-to-top motion-element">
           <i class="fa fa-arrow-up"></i>

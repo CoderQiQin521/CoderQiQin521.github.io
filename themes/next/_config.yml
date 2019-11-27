@@ -375,6 +375,8 @@ codeblock:
     # Available values: default | flat | mac
     style:
 
+background_music: //music.163.com/outchain/player?type=2&id=578090&auto=1&height=32
+
 back2top:
   enable: true
   # Back to top in sidebar.

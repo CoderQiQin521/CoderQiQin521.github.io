@@ -103,12 +103,6 @@ deploy:
 plugin:
 - hexo-generator-feed
 
-baidusitemap:
-    path: baidusitemap.xml
-sitemap:
-    path: sitemap.xml
-
-
 # Feed Atom
 feed:
 type: atom
