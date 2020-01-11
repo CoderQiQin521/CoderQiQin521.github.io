@@ -126,8 +126,9 @@ scheme: Pisces
 menu:
   home: / || home
   about: /about/ || user
-  server: /categories/server || server
   web: /categories/web || desktop
+  moblie: /categories/moblie || tablet
+  server: /categories/server || server
   database: /categories/database || database
   log: /categories/log || file-text-o
   tags: /tags/ || tags

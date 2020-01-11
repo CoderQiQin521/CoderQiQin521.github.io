@@ -6,8 +6,9 @@ title:
   schedule: 日程表
 menu:
   home: 首页
-  server: 服务端
   web: 前端
+  moblie: 移动端
+  server: 服务端
   database: 数据库
   log: 心情
   archives: 归档
