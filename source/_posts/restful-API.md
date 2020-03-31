@@ -29,3 +29,7 @@ URI中尽量使用连字符"-"代替下划线"_"的使用
 http://api.example.restapi.org/blogs/mark-masse/entries/this-is-my-first-post
 
 使用下划线""来分割字符串(单词)可能会和链接的样式冲突重叠，而影响阅读性。但实际上，"-"和""对URL中字符串的分割语意上还是有些差异的："-"分割的字符串(单词)一般各自都具有独立的含义，可参见上面的例子。而"_"一般用于对一个整体含义的字符串做了层级的分割，方便阅读，例如你想在URL中体现一个ip地址的信息：210_110_25_88 .
+
+## 参考资料
+  1. [理解RESTful架构https://www.ruanyifeng.com/blog/2011/09/restful.html](https://www.ruanyifeng.com/blog/2011/09/restful.html)
+  2. https://blog.csdn.net/qq_41606973/article/details/86352787
