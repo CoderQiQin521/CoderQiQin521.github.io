@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>coderQ-blog</title>
+  
+  <subtitle>一个前端的全栈之路</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-05-09T01:05:44.518Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>CoderQiQin</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>封装自己的CLI</title>
+    <link href="http://yoursite.com/2020/05/05/%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84CLI/"/>
+    <id>http://yoursite.com/2020/05/05/%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84CLI/</id>
+    <published>2020-05-04T16:18:53.000Z</published>
+    <updated>2020-05-09T01:05:44.518Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol><li>nodejs 里<code>path</code>,<code>fs</code>模块</li><li>commander 包(用来自定义命令和参数)</li><li>inquirer 包(命令行中交互式问答收集)</li><li>del 包</li><li></li></ol><h2 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h2><ol><li>使用<code>npm init -y</code>初始化一个项目,创建 bin 目录用来存放启动文件,创建 src 目录编写 cli 的主要代码</li><li>添加 bin 目录和<code>index.js</code>,这是一个 nodejs 下可执行的目录,全局模块调用入口一般是这里</li><li>在 package.json 文件添加<code>bin</code>字段,key 是全局执行的命令,值指向 bin 目录的执行文件</li></ol><a id="more"></a><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="模块划分批量引入"><a href="#模块划分批量引入" class="headerlink" title="模块划分批量引入"></a>模块划分批量引入</h3><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><h2 id="总结以及其他实践"><a href="#总结以及其他实践" class="headerlink" title="总结以及其他实践"></a>总结以及其他实践</h2><p><a href>源码地址</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前置知识&quot;&gt;&lt;a href=&quot;#前置知识&quot; class=&quot;headerlink&quot; title=&quot;前置知识&quot;&gt;&lt;/a&gt;前置知识&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;nodejs 里&lt;code&gt;path&lt;/code&gt;,&lt;code&gt;fs&lt;/code&gt;模块&lt;/li&gt;
+&lt;li&gt;commander 包(用来自定义命令和参数)&lt;/li&gt;
+&lt;li&gt;inquirer 包(命令行中交互式问答收集)&lt;/li&gt;
+&lt;li&gt;del 包&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;h2 id=&quot;项目搭建&quot;&gt;&lt;a href=&quot;#项目搭建&quot; class=&quot;headerlink&quot; title=&quot;项目搭建&quot;&gt;&lt;/a&gt;项目搭建&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;使用&lt;code&gt;npm init -y&lt;/code&gt;初始化一个项目,创建 bin 目录用来存放启动文件,创建 src 目录编写 cli 的主要代码&lt;/li&gt;
+&lt;li&gt;添加 bin 目录和&lt;code&gt;index.js&lt;/code&gt;,这是一个 nodejs 下可执行的目录,全局模块调用入口一般是这里&lt;/li&gt;
+&lt;li&gt;在 package.json 文件添加&lt;code&gt;bin&lt;/code&gt;字段,key 是全局执行的命令,值指向 bin 目录的执行文件&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="http://yoursite.com/categories/web/"/>
+    
+    
+      <category term="cli" scheme="http://yoursite.com/tags/cli/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>封装自己的组件库</title>
+    <link href="http://yoursite.com/2020/04/24/%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
+    <id>http://yoursite.com/2020/04/24/%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%84%E4%BB%B6%E5%BA%93/</id>
+    <published>2020-04-24T01:58:38.000Z</published>
+    <updated>2020-05-09T01:05:44.519Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前置知识-1"><a href="#前置知识-1" class="headerlink" title="前置知识 1"></a>前置知识 1</h2><ol><li><a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">vue</a></li><li><a href="https://cli.vuejs.org/zh/guide/" target="_blank" rel="noopener">vue-cli</a></li><li><a href="https://vue-loader.vuejs.org/zh/" target="_blank" rel="noopener">vue-loader</a></li><li>npm 平台账号和<a href>package.json</a></li></ol><h2 id="组件开发"><a href="#组件开发" class="headerlink" title="组件开发"></a>组件开发</h2><h2 id="插件开发"><a href="#插件开发" class="headerlink" title="插件开发"></a>插件开发</h2><h2 id="打包以及后续"><a href="#打包以及后续" class="headerlink" title="打包以及后续"></a>打包以及后续</h2><ol><li><code>package.json</code>中<code>private</code>字段一定配置为 false</li><li><code>main</code>字段需要指明入库的入口文件,例如<code>main: lib/cqui.umd.min.js</code></li><li>编写<code>readme</code>,组件库的使用文档</li><li>在<code>package.json</code>中<code>script</code>字段添加<code>build</code>-&gt;<code>vue-cli-service build --target lib --name lib</code>(使用 vue-cli-service 的 lib 模式打包到 lib 目录)</li><li>运行<code>npm run build</code></li></ol><a id="more"></a><h2 id="上传-github-维护"><a href="#上传-github-维护" class="headerlink" title="上传 github 维护"></a>上传 github 维护</h2><p>组件库的开发需要不断的维护迭代,我们使用 github 来把我们的源代码做管理,不想开源的可以使用 gitee</p><p>配置下<code>.gitignore</code>忽略的文件</p><h2 id="发布到-npm"><a href="#发布到-npm" class="headerlink" title="发布到 npm"></a>发布到 npm</h2><p>发布之前需要创建<code>.npmignore</code>, 来忽略非打包后组件库的文件,尤其是源代码,如果也一并发布会非常占用体积拉取时间</p><p>在项目下命令行使用<code>npm login</code>登录账号,注意一定要确认 npm 使用的是原镜像<code>https://registry.npmjs.org</code></p><p><code>npm publish</code>发布(每次迭代需要手动更新<code>package.json</code>的 version),稍后就能在<a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a>看到自己的 package 了~</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前置知识-1&quot;&gt;&lt;a href=&quot;#前置知识-1&quot; class=&quot;headerlink&quot; title=&quot;前置知识 1&quot;&gt;&lt;/a&gt;前置知识 1&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://cn.vuejs.org/v2/guide/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;vue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cli.vuejs.org/zh/guide/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;vue-cli&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://vue-loader.vuejs.org/zh/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;vue-loader&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;npm 平台账号和&lt;a href&gt;package.json&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;h2 id=&quot;组件开发&quot;&gt;&lt;a href=&quot;#组件开发&quot; class=&quot;headerlink&quot; title=&quot;组件开发&quot;&gt;&lt;/a&gt;组件开发&lt;/h2&gt;&lt;h2 id=&quot;插件开发&quot;&gt;&lt;a href=&quot;#插件开发&quot; class=&quot;headerlink&quot; title=&quot;插件开发&quot;&gt;&lt;/a&gt;插件开发&lt;/h2&gt;&lt;h2 id=&quot;打包以及后续&quot;&gt;&lt;a href=&quot;#打包以及后续&quot; class=&quot;headerlink&quot; title=&quot;打包以及后续&quot;&gt;&lt;/a&gt;打包以及后续&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;package.json&lt;/code&gt;中&lt;code&gt;private&lt;/code&gt;字段一定配置为 false&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;main&lt;/code&gt;字段需要指明入库的入口文件,例如&lt;code&gt;main: lib/cqui.umd.min.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;编写&lt;code&gt;readme&lt;/code&gt;,组件库的使用文档&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;package.json&lt;/code&gt;中&lt;code&gt;script&lt;/code&gt;字段添加&lt;code&gt;build&lt;/code&gt;-&amp;gt;&lt;code&gt;vue-cli-service build --target lib --name lib&lt;/code&gt;(使用 vue-cli-service 的 lib 模式打包到 lib 目录)&lt;/li&gt;
+&lt;li&gt;运行&lt;code&gt;npm run build&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="http://yoursite.com/categories/web/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>仿vue的MVVM模式实现</title>
+    <link href="http://yoursite.com/2020/03/28/%E4%BB%BFvue%E7%9A%84MVVM%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://yoursite.com/2020/03/28/%E4%BB%BFvue%E7%9A%84MVVM%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0/</id>
+    <published>2020-03-28T03:25:35.000Z</published>
+    <updated>2020-05-08T09:49:10.934Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>demo在线地址: <a href="https://codesandbox.io/embed/like-vue-qs42n?fontsize=14&hidenavigation=1&theme=dark" target="_blank" rel="noopener">https://codesandbox.io/embed/like-vue-qs42n?fontsize=14&amp;hidenavigation=1&amp;theme=dark</a></p></blockquote><p><img src="https://ae01.alicdn.com/kf/U299bf4c7980d42e39e325ac4c72c766d2.jpg" alt="https://ae01.alicdn.com/kf/U299bf4c7980d42e39e325ac4c72c766d2.jpg"></p><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">let vm = new Vue(&#123;</span><br><span class="line"><span class="symbol">        el:</span> <span class="string">"#app"</span>,</span><br><span class="line"><span class="symbol">        data:</span> &#123;</span><br><span class="line"><span class="symbol">          msg:</span> <span class="string">" 改变"</span>,</span><br><span class="line"><span class="symbol">          obj:</span> &#123;</span><br><span class="line"><span class="symbol">            title:</span> <span class="string">"&lt;strong&gt;仿写vue&lt;/strong&gt;"</span>,</span><br><span class="line"><span class="symbol">            o:</span> &#123;</span><br><span class="line"><span class="symbol">              name:</span> <span class="string">"asdasdas"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="symbol">        methods:</span> &#123;</span><br><span class="line">          handle() &#123;</span><br><span class="line">            console.log(this);</span><br><span class="line">            alert(<span class="number">123</span>);</span><br><span class="line">            this.msg = <span class="string">"shijiangaibiancanshu1"</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure><a id="more"></a><p>调用vue就是实例化一个<code>Vue</code>类的过程, vue的各个api继承自<code>Vue</code>类,option通过参数传入, 由于es5代码会比较啰嗦,采用es6方式, el是作用域的根节点,可以传入选择器或者<code>element</code>节点, data是响应的数据也是比较核心的部分,<br>可以看到首先判断元素绑定是否成功,除去数据代理先不讲,程序主要执行两个步骤,分别处理模版和数据:</p><ol><li>new Observer: 将整个数据data传入</li><li>new Compile: 将根元素el传入</li></ol><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vue</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(options) &#123;</span><br><span class="line">    <span class="keyword">this</span>.el = options.el;</span><br><span class="line">    <span class="keyword">this</span>.<span class="keyword">data</span> = options.<span class="keyword">data</span>;</span><br><span class="line">    <span class="keyword">this</span>.methods = options.methods;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.el) &#123;</span><br><span class="line">      <span class="comment">// 数据劫持</span></span><br><span class="line">      new Observer(<span class="keyword">this</span>.<span class="keyword">data</span>);</span><br><span class="line">      <span class="comment">// 数据代理</span></span><br><span class="line">      <span class="keyword">this</span>.proxy(<span class="keyword">this</span>.<span class="keyword">data</span>, <span class="keyword">this</span>);</span><br><span class="line">      <span class="comment">// 模版编译</span></span><br><span class="line">      new Compile(<span class="keyword">this</span>.el, <span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  proxy(<span class="keyword">data</span>, vm) &#123; <span class="comment">// 关于数据代理最后再讲</span></span><br><span class="line">    <span class="comment">// this.data.msg  &lt;=&gt; this.msg</span></span><br><span class="line">    Object.keys(<span class="keyword">data</span>).forEach(key =&gt; &#123;</span><br><span class="line">      Object.defineProperty(vm, key, &#123;</span><br><span class="line">        <span class="keyword">get</span>() &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">data</span>[key];</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">set</span>(newVal) &#123;</span><br><span class="line">          <span class="keyword">data</span>[key] = newVal;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>一个最基本的<code>MVVM</code>框架需要实现这几个模块: 数据劫持(observer), 模版编译(compile), 依赖收集(dep), 发布订阅(watcher,又称观察者), 代码都是比较常用的那类,难点在于设计模式的精巧和抽象,下面的图片,需要好好的理解</p><p><img src="https://ae01.alicdn.com/kf/Ue802cf0ff7ed4304b9d3f9fe09858113p.jpg" alt="https://ae01.alicdn.com/kf/Ue802cf0ff7ed4304b9d3f9fe09858113p.jpg"></p><p>右边部分我的理解大致是这样的: 在实例化时将数据传入类的内部,检测传参是否为对象,遍历传参对象的属性并递归嵌套对象,然后处理数据,关键api是es6的<code>Object.defineProperty</code><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">文档参考</a>,简单理解就是自定义对象属性,并通过getter和setter这个钩子进行我们的数据观察,(大喊一声:这里先占一个坑!)<br>在每一次遍历数据,劫持前,实例化一个依赖收集器, 该收集器具有添加观察者(watcher)存储,和通知更新两个方法,<br>在劫持数据的getter时收集器执行添加watcher, 在数据发生setter时,收集器通知更新</p><h2 id="watcher"><a href="#watcher" class="headerlink" title="watcher"></a>watcher</h2><p>watcher类主要功能接收一个回调,和获取对象数据的新旧值比对,在发生改变的时候,触发回调的执行</p><h2 id="模版编译compile"><a href="#模版编译compile" class="headerlink" title="模版编译compile"></a>模版编译compile</h2><p>模版编译是将根元素下的所有节点转换为文档片段<code>createDocumentFragment</code>提高性能,再插入根节点渲染,遍历文档片段下的每一个节点的nodeTye,区分是元素节点(如果是元素节点可能存在嵌套,递归处理)还是文本节点,拆分两种处理函数..<br>源码: </p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">class Compile &#123;</span><br><span class="line">  constructor(el, vm) &#123;</span><br><span class="line">    this.el = this.isElement(el) ? el : document.querySelector(el);</span><br><span class="line">    this.vm = vm;</span><br><span class="line">    let fragment = this.node2Fragment(this.el);</span><br><span class="line">    this.compile(fragment);</span><br><span class="line">    this.el.appendChild(fragment);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  isElement(el) &#123;</span><br><span class="line">    return el.nodeType === <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  node2Fragment(el) &#123;</span><br><span class="line">    let f = document.createDocumentFragment();</span><br><span class="line">    let firstChild;</span><br><span class="line"></span><br><span class="line">    while ((firstChild = el.firstChild)) &#123;</span><br><span class="line">      f.appendChild(firstChild);</span><br><span class="line">    &#125;</span><br><span class="line">    return f;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  compile(fragment) &#123;</span><br><span class="line">    let nodes = fragment.childNodes;</span><br><span class="line">    [...nodes].forEach(<span class="keyword">node</span> <span class="title">=&gt; &#123;</span></span><br><span class="line"><span class="title">      if</span> (this.isElement(<span class="keyword">node</span><span class="title">)) &#123;</span></span><br><span class="line"><span class="title">        this</span>.compileElement(<span class="keyword">node</span><span class="title">);</span></span><br><span class="line"><span class="title">        this</span>.compile(<span class="keyword">node</span><span class="title">);</span></span><br><span class="line"><span class="title">      &#125; else</span> &#123;</span><br><span class="line">        this.compileText(<span class="keyword">node</span><span class="title">);</span></span><br><span class="line"><span class="title">      &#125;</span></span><br><span class="line"><span class="title">    &#125;);</span></span><br><span class="line"><span class="title">  &#125;</span></span><br><span class="line"><span class="title"></span></span><br><span class="line"><span class="title">  compileElement</span>(<span class="keyword">node</span><span class="title">) &#123;</span></span><br><span class="line"><span class="title">    let</span> <span class="keyword">attributes</span> = <span class="keyword">node</span>.<span class="title">attributes</span>;</span><br><span class="line">    [...<span class="keyword">attributes</span>].forEach(attr =&gt; &#123;</span><br><span class="line">      let &#123; name, value &#125; = attr;</span><br><span class="line">      if (this.isDirective(name)) &#123;</span><br><span class="line">        let [, directive] = name.split(<span class="string">"-"</span>);</span><br><span class="line">        let [dirName, eventName] = directive.split(<span class="string">":"</span>);</span><br><span class="line">        // console.log(name, value, directive);</span><br><span class="line">        compileUtil[dirName](<span class="keyword">node</span><span class="title">, value</span>, this.vm, eventName);</span><br><span class="line">        <span class="keyword">node</span>.<span class="title">removeAttribute</span>(`v-$&#123;directive&#125;`);</span><br><span class="line">      &#125; else if (this.isEvent(name)) &#123;</span><br><span class="line">        let [, eventName] = name.split(<span class="string">":"</span>);</span><br><span class="line">        compileUtil[<span class="string">"on"</span>](<span class="keyword">node</span><span class="title">, value</span>, this.vm, eventName);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  compileText(<span class="keyword">node</span><span class="title">) &#123;</span></span><br><span class="line"><span class="title">    let</span> textContent = <span class="keyword">node</span>.<span class="title">textContent</span>;</span><br><span class="line">    if (/\&#123;\&#123;(.+?)\&#125;\&#125;/.test(textContent)) &#123;</span><br><span class="line">      compileUtil[<span class="string">"text"</span>](<span class="keyword">node</span><span class="title">, textContent</span>, this.vm);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  isDirective(name) &#123;</span><br><span class="line">    return name.startsWith(<span class="string">"v-"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  isEvent(name) &#123;</span><br><span class="line">    return name.startsWith(<span class="string">"@"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>原创手打,留言支持一下吧~</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;demo在线地址: &lt;a href=&quot;https://codesandbox.io/embed/like-vue-qs42n?fontsize=14&amp;hidenavigation=1&amp;theme=dark&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://codesandbox.io/embed/like-vue-qs42n?fontsize=14&amp;amp;hidenavigation=1&amp;amp;theme=dark&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;&lt;img src=&quot;https://ae01.alicdn.com/kf/U299bf4c7980d42e39e325ac4c72c766d2.jpg&quot; alt=&quot;https://ae01.alicdn.com/kf/U299bf4c7980d42e39e325ac4c72c766d2.jpg&quot;&gt;&lt;/p&gt;&lt;h2 id=&quot;分析&quot;&gt;&lt;a href=&quot;#分析&quot; class=&quot;headerlink&quot; title=&quot;分析&quot;&gt;&lt;/a&gt;分析&lt;/h2&gt;&lt;figure class=&quot;highlight dts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;let vm = new Vue(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;        el:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;#app&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;        data:&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;          msg:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot; 改变&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;          obj:&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;            title:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;strong&amp;gt;仿写vue&amp;lt;/strong&amp;gt;&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;            o:&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;              name:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;asdasdas&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;        methods:&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          handle() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            console.log(this);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            alert(&lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            this.msg = &lt;span class=&quot;string&quot;&gt;&quot;shijiangaibiancanshu1&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="http://yoursite.com/categories/web/"/>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+      <category term="mvvm" scheme="http://yoursite.com/tags/mvvm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql学习笔记</title>
+    <link href="http://yoursite.com/2020/03/28/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2020/03/28/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-03-28T00:59:44.000Z</published>
+    <updated>2020-05-08T09:49:10.932Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="mysql介绍"><a href="#mysql介绍" class="headerlink" title="mysql介绍"></a>mysql介绍</h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h2 id="语句类型"><a href="#语句类型" class="headerlink" title="语句类型"></a>语句类型</h2><ul><li>DML:  数据操纵语句   用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 insert、delete、udpate 和select 等。(增添改查）</li><li>DDL: 数据定义语句   数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。</li><li>DCL（Data Control Language）语句:  数据控制语句，用于控制不同数据段直接的许可和访问级别的语句。这些语句定义了数据库、表、字段、用户的访问权限和安全级别。主要的语句关键字包括 grant、revoke 等。</li><li>TCL: 事务控制语言</li></ul><a id="more"></a><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql <span class="comment">--version/-V 查看版本</span></span><br><span class="line">mysql -h localhost -P 3306 -u root -p 链接本地数据库3306端口 roo用户</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>; 查看所有数据库</span><br><span class="line"><span class="keyword">use</span> xxx; 使用某个库</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>; 查看当前库所有的数据表</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span> <span class="keyword">from</span> xxx;   查看某个库下的所有数据表;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> xxx(<span class="keyword">id</span> <span class="built_in">int</span>, title <span class="built_in">varchar</span>(<span class="number">20</span>));  创建一张数据表</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> xxx (<span class="keyword">id</span>,title) <span class="keyword">values</span>(<span class="number">1</span>,xx); 插入一行数据;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> xxx; 查询当前表的所有行数据;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>(); 查看当前所在的库;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">version</span>();  查看当前mysql版本</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;mysql介绍&quot;&gt;&lt;a href=&quot;#mysql介绍&quot; class=&quot;headerlink&quot; title=&quot;mysql介绍&quot;&gt;&lt;/a&gt;mysql介绍&lt;/h2&gt;&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;h2 id=&quot;语句类型&quot;&gt;&lt;a href=&quot;#语句类型&quot; class=&quot;headerlink&quot; title=&quot;语句类型&quot;&gt;&lt;/a&gt;语句类型&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;DML:  数据操纵语句   用于添加、删除、更新和查询数据库记录，并检查数据完整性，常用的语句关键字主要包括 insert、delete、udpate 和select 等。(增添改查）&lt;/li&gt;
+&lt;li&gt;DDL: 数据定义语句   数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 create、drop、alter等。&lt;/li&gt;
+&lt;li&gt;DCL（Data Control Language）语句:  数据控制语句，用于控制不同数据段直接的许可和访问级别的语句。这些语句定义了数据库、表、字段、用户的访问权限和安全级别。主要的语句关键字包括 grant、revoke 等。&lt;/li&gt;
+&lt;li&gt;TCL: 事务控制语言&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="database" scheme="http://yoursite.com/categories/database/"/>
+    
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+      <category term="关系型" scheme="http://yoursite.com/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Graphql学习心得</title>
+    <link href="http://yoursite.com/2020/03/27/Graphql%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/"/>
+    <id>http://yoursite.com/2020/03/27/Graphql%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/</id>
+    <published>2020-03-27T01:04:33.000Z</published>
+    <updated>2020-05-08T09:49:10.927Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p><code>Graphql</code>是一种API查询语言,<br>目前接口开发中使用的还是基于<code>restful</code>规范的主流技术,曾经我以为<code>restful</code>已经是很完美的方案了,直到我了解到了本篇的主角–<code>Graphql</code></p><h2 id="restful的几个问题"><a href="#restful的几个问题" class="headerlink" title="restful的几个问题"></a>restful的几个问题</h2><ul><li>后端接口,字段变动, 接口报错,容易撕逼</li><li>接口变动文档维护问题</li><li>参数类型校验问题</li><li>请求数据的冗余, 很多用不到的字段一并返回浪费资源</li><li>深层数据需要依赖多次请求的结果才能拿到</li><li>修改和添加新接口容易产生bug的问题</li></ul><a id="more"></a><p>总结: <code>Graphql</code>目前来说还没有大火,大公司对新技术很多公司还是观望,也有很多没有历史包袱的初创公司已经上车,我个人对新技术一直是比较推崇的,一些个人项目和demo已经用上</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简单介绍&quot;&gt;&lt;a href=&quot;#简单介绍&quot; class=&quot;headerlink&quot; title=&quot;简单介绍&quot;&gt;&lt;/a&gt;简单介绍&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Graphql&lt;/code&gt;是一种API查询语言,&lt;br&gt;目前接口开发中使用的还是基于&lt;code&gt;restful&lt;/code&gt;规范的主流技术,曾经我以为&lt;code&gt;restful&lt;/code&gt;已经是很完美的方案了,直到我了解到了本篇的主角–&lt;code&gt;Graphql&lt;/code&gt;&lt;/p&gt;&lt;h2 id=&quot;restful的几个问题&quot;&gt;&lt;a href=&quot;#restful的几个问题&quot; class=&quot;headerlink&quot; title=&quot;restful的几个问题&quot;&gt;&lt;/a&gt;restful的几个问题&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;后端接口,字段变动, 接口报错,容易撕逼&lt;/li&gt;
+&lt;li&gt;接口变动文档维护问题&lt;/li&gt;
+&lt;li&gt;参数类型校验问题&lt;/li&gt;
+&lt;li&gt;请求数据的冗余, 很多用不到的字段一并返回浪费资源&lt;/li&gt;
+&lt;li&gt;深层数据需要依赖多次请求的结果才能拿到&lt;/li&gt;
+&lt;li&gt;修改和添加新接口容易产生bug的问题&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="server" scheme="http://yoursite.com/categories/server/"/>
+    
+    
+      <category term="api" scheme="http://yoursite.com/tags/api/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js-函数防抖与函数节流</title>
+    <link href="http://yoursite.com/2020/01/11/js-%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/"/>
+    <id>http://yoursite.com/2020/01/11/js-%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/</id>
+    <published>2020-01-11T05:41:22.000Z</published>
+    <updated>2020-05-08T09:49:10.929Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p> 一些dom或者bom事件,如<code>resize</code>,<code>scroll</code>,<code>input</code>…会频繁执行(采用最小的时间单位4ms-10ms),浪费性能也容易卡顿,可以用防抖和节流做些性能优化</p></blockquote><h2 id="函数节流-throttle"><a href="#函数节流-throttle" class="headerlink" title="函数节流(throttle)"></a>函数节流(throttle)</h2><blockquote><p>显示器刷新率一般是60/120fps,人眼睛能捕捉的频率,如果特别高,没有实际意义</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 节流(固定单位时间内触发一次)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, delay = <span class="number">1000</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> flag = <span class="literal">true</span> <span class="comment">// 做一个判断标识,当是false,return</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//闭包</span></span><br><span class="line">    <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    flag = <span class="literal">false</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>) <span class="comment">// 改变指针和传入参数</span></span><br><span class="line">      flag = <span class="literal">true</span></span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="函数防抖-debounce"><a href="#函数防抖-debounce" class="headerlink" title="函数防抖(debounce)"></a>函数防抖(debounce)</h2><blockquote><p>如果有人进电梯（触发事件），那电梯将在10秒钟后出发（执行事件监听器），这时如果又有人进电梯了（在10秒内再次触发该事件），我们又得等10秒再出发（重新计时）。</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay = <span class="number">1000</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(timer)</span><br><span class="line"></span><br><span class="line">    timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>对于函数防抖，有以下几种应用场景：</p><ul><li>给按钮加函数防抖防止表单多次提交。</li><li>对于输入框连续输入进行AJAX验证时，用函数防抖能有效减少请求次数。</li><li>判断<code>scroll</code>是否滑到底部，<code>滚动事件</code>+<code>函数防抖</code></li></ul><blockquote><p>总的来说，适合多次事件<strong>一次响应</strong>的情况</p></blockquote><p>对于函数节流，有如下几个场景：</p><ul><li>游戏中的刷新率</li><li>DOM元素拖拽</li><li>Canvas画笔功能</li></ul><blockquote><p>总的来说，适合<strong>大量事件</strong>按时间做<strong>平均</strong>分配触发。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt; 一些dom或者bom事件,如&lt;code&gt;resize&lt;/code&gt;,&lt;code&gt;scroll&lt;/code&gt;,&lt;code&gt;input&lt;/code&gt;…会频繁执行(采用最小的时间单位4ms-10ms),浪费性能也容易卡顿,可以用防抖和节流做些性能优化&lt;/p&gt;
+&lt;/blockquote&gt;&lt;h2 id=&quot;函数节流-throttle&quot;&gt;&lt;a href=&quot;#函数节流-throttle&quot; class=&quot;headerlink&quot; title=&quot;函数节流(throttle)&quot;&gt;&lt;/a&gt;函数节流(throttle)&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;显示器刷新率一般是60/120fps,人眼睛能捕捉的频率,如果特别高,没有实际意义&lt;/p&gt;
+&lt;/blockquote&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 节流(固定单位时间内触发一次)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;throttle&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;fn, delay = &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; flag = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// 做一个判断标识,当是false,return&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123; &lt;span class=&quot;comment&quot;&gt;//闭包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!flag) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    flag = &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      fn.apply(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;, &lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// 改变指针和传入参数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      flag = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;, delay)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="http://yoursite.com/categories/web/"/>
+    
+    
+      <category term="节流" scheme="http://yoursite.com/tags/%E8%8A%82%E6%B5%81/"/>
+    
+      <category term="防抖" scheme="http://yoursite.com/tags/%E9%98%B2%E6%8A%96/"/>
+    
+      <category term="性能优化" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OAuth2.0之微信登录授权</title>
+    <link href="http://yoursite.com/2020/01/04/OAuth2-0%E4%B9%8B%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E6%8E%88%E6%9D%83/"/>
+    <id>http://yoursite.com/2020/01/04/OAuth2-0%E4%B9%8B%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%E6%8E%88%E6%9D%83/</id>
+    <published>2020-01-04T01:05:34.000Z</published>
+    <updated>2020-05-08T09:49:10.928Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="协议介绍"><a href="#协议介绍" class="headerlink" title="协议介绍"></a>协议介绍</h2><p>当你开始使用一个网站还是手机应用的时候, 那么第一步很有可能是从注册开始的,  从最初一丝不苟的填写一串表单注册,到使用短信验证码注册, 体验越来越好, 不过这个时候也会带来几个问题:</p><ul><li>用户还是感觉麻烦进而不再注册,懒惰是人类的发展一大动力</li><li>越来越多的账号需要记忆,忘记账号的情况也越来越多</li><li>注册之后没有社交关系</li><li>个人资料的设置<br>采用授权方式的OAuth2.0协议的出现解决了以上的各种问题,什么是OAuth2.0呢</li></ul><a id="more"></a><p><img src="https://s2.ax1x.com/2020/01/06/lrs8SO.png" alt="一图顶千言"></p><ol><li>(引导用户发起授权请求)客户端向用户询问,用户允许授权</li><li>获取到<code>code</code>和<code>state</code></li><li>将<code>code</code>发送给服务端, 服务端携带<code>code</code>请求验证服务器,获取<code>OpenID</code>和<code>Access Token</code></li><li>根据<code>OpenID</code>和<code>Access Token</code>,继续请求资源服务器,获取用户信息</li></ol><p><img src="https://s2.ax1x.com/2020/01/06/lrrLJf.jpg" alt="一图顶千言"></p><p>现在流程已经比较清晰了,其中步骤1,步骤2是前端处理,后面是服务端处理,可以将用户信息存到用户表,并生成token返回前端用于身份校验</p><h2 id="微信对接"><a href="#微信对接" class="headerlink" title="微信对接"></a>微信对接</h2><p><a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html" target="_blank" rel="noopener">官方文档</a></p><blockquote><p>1、在微信公众号请求用户网页授权之前，开发者需要先到公众平台官网中的“开发 - 接口权限 - 网页服务 - 网页帐号 - 网页授权获取用户基本信息”的配置选项中，修改授权回调域名。请注意，这里填写的是域名（是一个字符串），而不是URL，因此请勿加 http:// 等协议头；<br>2、授权回调域名配置规范为全域名，比如需要网页授权的域名为：<a href="http://www.qq.com，配置以后此域名下面的页面http://www.qq.com/music.html" target="_blank" rel="noopener">www.qq.com，配置以后此域名下面的页面http://www.qq.com/music.html</a> 、 <a href="http://www.qq.com/login.html" target="_blank" rel="noopener">http://www.qq.com/login.html</a> 都可以进行OAuth2.0鉴权。但<a href="http://pay.qq.com" target="_blank" rel="noopener">http://pay.qq.com</a> 、 <a href="http://music.qq.com" target="_blank" rel="noopener">http://music.qq.com</a> 、 <a href="http://qq.com无法进行OAuth2.0鉴权" target="_blank" rel="noopener">http://qq.com无法进行OAuth2.0鉴权</a></p></blockquote><p>3、如果公众号登录授权给了第三方开发者来进行管理，则不必做任何设置，由第三方代替公众号实现网页授权即可</p><ol><li>第一步：用户同意授权，获取code</li><li>第二步：通过code换取网页授权access_token</li><li>第三步：刷新access_token（如果需要）<br>4 第四步：拉取用户信息(需scope为 snsapi_userinfo)</li></ol><h2 id="三种思路"><a href="#三种思路" class="headerlink" title="三种思路"></a>三种思路</h2><h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>使用内网穿透,代理域名<br>最后放上<code>node</code>写了一个demo, 源码地址<iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=coderqiqin521&repo=oauth-wx&type=star&count=true"></iframe></p><!-- [源码地址: https://github.com/CoderQiQin521/oauth-wx 欢迎star](https://github.com/CoderQiQin521/oauth-wx) -->]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;协议介绍&quot;&gt;&lt;a href=&quot;#协议介绍&quot; class=&quot;headerlink&quot; title=&quot;协议介绍&quot;&gt;&lt;/a&gt;协议介绍&lt;/h2&gt;&lt;p&gt;当你开始使用一个网站还是手机应用的时候, 那么第一步很有可能是从注册开始的,  从最初一丝不苟的填写一串表单注册,到使用短信验证码注册, 体验越来越好, 不过这个时候也会带来几个问题:&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;用户还是感觉麻烦进而不再注册,懒惰是人类的发展一大动力&lt;/li&gt;
+&lt;li&gt;越来越多的账号需要记忆,忘记账号的情况也越来越多&lt;/li&gt;
+&lt;li&gt;注册之后没有社交关系&lt;/li&gt;
+&lt;li&gt;个人资料的设置&lt;br&gt;采用授权方式的OAuth2.0协议的出现解决了以上的各种问题,什么是OAuth2.0呢&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="server" scheme="http://yoursite.com/categories/server/"/>
+    
+    
+      <category term="OAuth2.0" scheme="http://yoursite.com/tags/OAuth2-0/"/>
+    
+      <category term="登录" scheme="http://yoursite.com/tags/%E7%99%BB%E5%BD%95/"/>
+    
+      <category term="微信授权" scheme="http://yoursite.com/tags/%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>近期项目</title>
+    <link href="http://yoursite.com/2019/11/28/%E8%BF%91%E6%9C%9F%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://yoursite.com/2019/11/28/%E8%BF%91%E6%9C%9F%E9%A1%B9%E7%9B%AE/</id>
+    <published>2019-11-28T07:43:07.000Z</published>
+    <updated>2020-05-08T09:49:10.942Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基于socket-io的聊天室"><a href="#基于socket-io的聊天室" class="headerlink" title="基于socket.io的聊天室"></a>基于socket.io的聊天室</h2><p><a href="http://socket.qiqin.ycik.com/" target="_blank" rel="noopener">http://socket.qiqin.ycik.com/</a></p><h2 id="react版github-app"><a href="#react版github-app" class="headerlink" title="react版github app"></a>react版github app</h2><p><a href="http://github.qiqin.ycik.com/" target="_blank" rel="noopener">http://github.qiqin.ycik.com/</a></p><h2 id="vue-express-mongodb后台管理"><a href="#vue-express-mongodb后台管理" class="headerlink" title="vue+express+mongodb后台管理"></a>vue+express+mongodb后台管理</h2><p><a href="http://node.qiqin.ycik.com/" target="_blank" rel="noopener">http://node.qiqin.ycik.com/</a></p><h2 id="登录注册token生成和密码加密"><a href="#登录注册token生成和密码加密" class="headerlink" title="登录注册token生成和密码加密"></a>登录注册token生成和密码加密</h2><a id="more"></a><p><a href="http://login.qiqin.ycik.com/" target="_blank" rel="noopener">http://login.qiqin.ycik.com/</a></p><h2 id="vue-element-admin"><a href="#vue-element-admin" class="headerlink" title="vue-element-admin"></a>vue-element-admin</h2><p><a href="http://111.229.27.8:3400" target="_blank" rel="noopener">http://111.229.27.8:3400</a></p><h2 id="webgl"><a href="#webgl" class="headerlink" title="webgl"></a>webgl</h2><p><a href="http://three.qiqin.ycik.com/" target="_blank" rel="noopener">http://three.qiqin.ycik.com/</a> </p><h2 id="nuxtjs-ssr"><a href="#nuxtjs-ssr" class="headerlink" title="nuxtjs-ssr"></a>nuxtjs-ssr</h2><p><a href="http://ssr.qiqin.ycik.com/" target="_blank" rel="noopener">http://ssr.qiqin.ycik.com/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基于socket-io的聊天室&quot;&gt;&lt;a href=&quot;#基于socket-io的聊天室&quot; class=&quot;headerlink&quot; title=&quot;基于socket.io的聊天室&quot;&gt;&lt;/a&gt;基于socket.io的聊天室&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://socket.qiqin.ycik.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://socket.qiqin.ycik.com/&lt;/a&gt;&lt;/p&gt;&lt;h2 id=&quot;react版github-app&quot;&gt;&lt;a href=&quot;#react版github-app&quot; class=&quot;headerlink&quot; title=&quot;react版github app&quot;&gt;&lt;/a&gt;react版github app&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://github.qiqin.ycik.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://github.qiqin.ycik.com/&lt;/a&gt;&lt;/p&gt;&lt;h2 id=&quot;vue-express-mongodb后台管理&quot;&gt;&lt;a href=&quot;#vue-express-mongodb后台管理&quot; class=&quot;headerlink&quot; title=&quot;vue+express+mongodb后台管理&quot;&gt;&lt;/a&gt;vue+express+mongodb后台管理&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://node.qiqin.ycik.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://node.qiqin.ycik.com/&lt;/a&gt;&lt;/p&gt;&lt;h2 id=&quot;登录注册token生成和密码加密&quot;&gt;&lt;a href=&quot;#登录注册token生成和密码加密&quot; class=&quot;headerlink&quot; title=&quot;登录注册token生成和密码加密&quot;&gt;&lt;/a&gt;登录注册token生成和密码加密&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="server" scheme="http://yoursite.com/categories/server/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>提高程序员幸福感-工具篇</title>
+    <link href="http://yoursite.com/2019/11/21/%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B9%B8%E7%A6%8F%E6%84%9F-%E5%B7%A5%E5%85%B7%E7%AF%87/"/>
+    <id>http://yoursite.com/2019/11/21/%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B9%B8%E7%A6%8F%E6%84%9F-%E5%B7%A5%E5%85%B7%E7%AF%87/</id>
+    <published>2019-11-21T05:00:59.000Z</published>
+    <updated>2020-05-09T02:30:53.149Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="梯子"><a href="#梯子" class="headerlink" title="梯子"></a>梯子</h2><p>第一步我们需要解决墙的问题,很多好用的软件和网站没有接触到也是受到这个限制,<br>比如同步 chrome 书签和插件,stackoverflow,使用 google 授权登陆等,梯子有很多,大家自行选择</p><h2 id="google-全家桶"><a href="#google-全家桶" class="headerlink" title="google 全家桶"></a>google 全家桶</h2><p>gmail,google 搜索,google 翻译,chrome,youtube,keep,google 日历,google(文档,表格,幻灯片),google 云盘….<br>google 真是一家伟大的公司!</p><a id="more"></a><h2 id="密码管理插件-lastpass"><a href="#密码管理插件-lastpass" class="headerlink" title="密码管理插件 lastpass"></a>密码管理插件 lastpass</h2><p>密码管理箱,收集所有网站的帐号密码,匹配到网站还可以填充,再也不担心忘记密码啦<br>mac,window,andriod,iphone 全支持</p><h2 id="vscode-同步插件-Settings-Sync"><a href="#vscode-同步插件-Settings-Sync" class="headerlink" title="vscode 同步插件 Settings Sync"></a>vscode 同步插件 Settings Sync</h2><p>结合 chrome 的书签插件同步,以及 lastpass 密码同步,最后就是这款 vscode 设置和插件同步了,这样我的工作流在办公室和家之间,mac 和 window 之间无缝衔接的</p><h2 id="uTools-开发者的工具集"><a href="#uTools-开发者的工具集" class="headerlink" title="uTools 开发者的工具集"></a>uTools 开发者的工具集</h2><p><a href="https://www.u.tools/" target="_blank" rel="noopener">传送门</a></p><p>我比较常用他的文件搜索,内网穿透,取色器,翻译这几个功能,目前增加了好多的开发中有用的插件</p><h2 id="poket-稍后再看"><a href="#poket-稍后再看" class="headerlink" title="poket 稍后再看"></a>poket 稍后再看</h2><p>好用到爆,一些想看却暂时没时间的文章,只需一键保存到空间,任何设备随时都能继续阅读,碎片化时间的神器</p><p>mac,window,andriod,iphone 全支持</p><p>##</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;梯子&quot;&gt;&lt;a href=&quot;#梯子&quot; class=&quot;headerlink&quot; title=&quot;梯子&quot;&gt;&lt;/a&gt;梯子&lt;/h2&gt;&lt;p&gt;第一步我们需要解决墙的问题,很多好用的软件和网站没有接触到也是受到这个限制,&lt;br&gt;比如同步 chrome 书签和插件,stackoverflow,使用 google 授权登陆等,梯子有很多,大家自行选择&lt;/p&gt;&lt;h2 id=&quot;google-全家桶&quot;&gt;&lt;a href=&quot;#google-全家桶&quot; class=&quot;headerlink&quot; title=&quot;google 全家桶&quot;&gt;&lt;/a&gt;google 全家桶&lt;/h2&gt;&lt;p&gt;gmail,google 搜索,google 翻译,chrome,youtube,keep,google 日历,google(文档,表格,幻灯片),google 云盘….&lt;br&gt;google 真是一家伟大的公司!&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="log" scheme="http://yoursite.com/categories/log/"/>
+    
+    
+      <category term="程序员" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+    
+      <category term="效率" scheme="http://yoursite.com/tags/%E6%95%88%E7%8E%87/"/>
+    
+      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>提高程序员幸福感--物品篇</title>
+    <link href="http://yoursite.com/2019/11/21/%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B9%B8%E7%A6%8F%E6%84%9F-%E7%89%A9%E5%93%81%E7%AF%87/"/>
+    <id>http://yoursite.com/2019/11/21/%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BA%8F%E5%91%98%E5%B9%B8%E7%A6%8F%E6%84%9F-%E7%89%A9%E5%93%81%E7%AF%87/</id>
+    <published>2019-11-21T04:03:14.000Z</published>
+    <updated>2020-05-08T09:49:10.940Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="显示器-眼睛"><a href="#显示器-眼睛" class="headerlink" title="显示器-眼睛"></a>显示器-眼睛</h2><p>  分辨率至少2k或者4k,<br>  尺寸27-34, 再大就不适合写代码了<br>  结合虚拟桌面:<br>    - <kbd>ctrl</kbd>+<kbd>win</kbd>+<kbd>d</kbd>: 新建桌面<br>    - <kbd>ctrl</kbd>+<kbd>win</kbd>+<kbd>f4</kbd>: 关闭桌面<br>    - <kbd>ctrl</kbd>+<kbd>win</kbd>+<kbd><- -></-></kbd>: 切换桌面<br>  有条件的组成双显示器, 嗯,真香~<br>  之前用的是LG一款34寸21:9比例,1080P分辨率的屏幕, 现在换成双显示器了<br>  目前主屏幕用的是DELL的U2718Q的4k,不管是颜色还是清晰度可以说完美~</p><a id="more"></a><h2 id="机械键盘-手指"><a href="#机械键盘-手指" class="headerlink" title="机械键盘-手指"></a>机械键盘-手指</h2><p>  好的一款键盘对程序员来说太过重要了,这是吃饭的家伙,每一次敲击都是金钱的声音<br>  目前正在使用的是<code>ikbc</code>的一款87键无线青轴,鼠标是罗技无线, 桌面想要简洁一定要选择无线外设</p><h2 id="降噪耳机-耳朵"><a href="#降噪耳机-耳朵" class="headerlink" title="降噪耳机-耳朵"></a>降噪耳机-耳朵</h2><p>  这个也是用了就回不去系列,我们平时的办公环境不太可能做到安静的程度,而在编程的时候很容易别外界噪音所干扰,眼睛你可以选择不看,但是耳朵你只能被动接收,这个时候带上一款主动降噪的耳机,世界都是你的</p><p>  我目前正在用的是<em>Snoy WH-1000X M3</em></p><h2 id="舒适的座椅-腰"><a href="#舒适的座椅-腰" class="headerlink" title="舒适的座椅-腰"></a>舒适的座椅-腰</h2><h2 id="保温杯-胃"><a href="#保温杯-胃" class="headerlink" title="保温杯-胃"></a>保温杯-胃</h2><p>  保温杯尽量选择口径和容量大一点的</p><ol><li>比较容易清洗</li><li>可以大幅减少起来接水的频率<br>ps: 可以准备点茶or咖啡,下午喝上一杯用来提神还是挺好的</li></ol><h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h2><ul><li>整洁的桌面</li><li>明亮的光线</li><li>良好的视野</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;显示器-眼睛&quot;&gt;&lt;a href=&quot;#显示器-眼睛&quot; class=&quot;headerlink&quot; title=&quot;显示器-眼睛&quot;&gt;&lt;/a&gt;显示器-眼睛&lt;/h2&gt;&lt;p&gt;  分辨率至少2k或者4k,&lt;br&gt;  尺寸27-34, 再大就不适合写代码了&lt;br&gt;  结合虚拟桌面:&lt;br&gt;    - &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;win&lt;/kbd&gt;+&lt;kbd&gt;d&lt;/kbd&gt;: 新建桌面&lt;br&gt;    - &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;win&lt;/kbd&gt;+&lt;kbd&gt;f4&lt;/kbd&gt;: 关闭桌面&lt;br&gt;    - &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;win&lt;/kbd&gt;+&lt;kbd&gt;&lt;- -&gt;&lt;/-&gt;&lt;/kbd&gt;: 切换桌面&lt;br&gt;  有条件的组成双显示器, 嗯,真香~&lt;br&gt;  之前用的是LG一款34寸21:9比例,1080P分辨率的屏幕, 现在换成双显示器了&lt;br&gt;  目前主屏幕用的是DELL的U2718Q的4k,不管是颜色还是清晰度可以说完美~&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="log" scheme="http://yoursite.com/categories/log/"/>
+    
+    
+      <category term="程序员" scheme="http://yoursite.com/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
+    
+      <category term="效率" scheme="http://yoursite.com/tags/%E6%95%88%E7%8E%87/"/>
+    
+      <category term="幸福感" scheme="http://yoursite.com/tags/%E5%B9%B8%E7%A6%8F%E6%84%9F/"/>
+    
+      <category term="健康" scheme="http://yoursite.com/tags/%E5%81%A5%E5%BA%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mongodb的一些心得</title>
+    <link href="http://yoursite.com/2019/11/20/mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/"/>
+    <id>http://yoursite.com/2019/11/20/mongodb%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/</id>
+    <published>2019-11-20T08:43:27.000Z</published>
+    <updated>2020-05-08T09:49:10.931Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://imgchr.com/i/MfNKN6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/11/20/MfNKN6.md.jpg" alt="MfNKN6.md.jpg"></a></p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><blockquote><p>MongoDB（来自于英文单词“Humongous”，中文含义为“庞大”）是可以应用于各种规模的企业、各个行业以及各类应用程序的开源数据库。作为一个适用于敏捷开发的数据库，MongoDB的数据模式可以随着应用程序的发展而灵活地更新。与此同时，它也为开发人员 提供了传统数据库的功能：二级索引，完整的查询系统以及严格一致性等等。 MongoDB能够使企业更加具有敏捷性和可扩展性，各种规模的企业都可以通过使用MongoDB来创建新的应用，提高与客户之间的工作效率，加快产品上市时间，以及降低企业成本。<br>MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。它可以从单服务器部署扩展到大型、复杂的多数据中心架构。利用内存计算的优势，MongoDB能够提供高性能的数据读写操作。 MongoDB的本地复制和自动故障转移功能使您的应用程序具有企业级的可靠性和操作灵活性。</p></blockquote><a id="more"></a><h2 id="mongodb的优缺点"><a href="#mongodb的优缺点" class="headerlink" title="mongodb的优缺点"></a>mongodb的优缺点</h2><h2 id="mongoose驱动"><a href="#mongoose驱动" class="headerlink" title="mongoose驱动"></a>mongoose驱动</h2><h3 id="schema"><a href="#schema" class="headerlink" title="schema"></a>schema</h3><h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><h3 id="entity"><a href="#entity" class="headerlink" title="entity"></a>entity</h3><h3 id="常用api"><a href="#常用api" class="headerlink" title="常用api"></a>常用api</h3><p>学习参考: <a href="https://mongoosedoc.top/" target="_blank" rel="noopener">https://mongoosedoc.top/</a><br><a href="https://www.w3cschool.cn/mongodb/" target="_blank" rel="noopener">https://www.w3cschool.cn/mongodb/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://imgchr.com/i/MfNKN6&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/11/20/MfNKN6.md.jpg&quot; alt=&quot;MfNKN6.md.jpg&quot;&gt;&lt;/a&gt;&lt;/p&gt;&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;MongoDB（来自于英文单词“Humongous”，中文含义为“庞大”）是可以应用于各种规模的企业、各个行业以及各类应用程序的开源数据库。作为一个适用于敏捷开发的数据库，MongoDB的数据模式可以随着应用程序的发展而灵活地更新。与此同时，它也为开发人员 提供了传统数据库的功能：二级索引，完整的查询系统以及严格一致性等等。 MongoDB能够使企业更加具有敏捷性和可扩展性，各种规模的企业都可以通过使用MongoDB来创建新的应用，提高与客户之间的工作效率，加快产品上市时间，以及降低企业成本。&lt;br&gt;MongoDB是专为可扩展性，高性能和高可用性而设计的数据库。它可以从单服务器部署扩展到大型、复杂的多数据中心架构。利用内存计算的优势，MongoDB能够提供高性能的数据读写操作。 MongoDB的本地复制和自动故障转移功能使您的应用程序具有企业级的可靠性和操作灵活性。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="database" scheme="http://yoursite.com/categories/database/"/>
+    
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="mongodb" scheme="http://yoursite.com/tags/mongodb/"/>
+    
+      <category term="mongoose" scheme="http://yoursite.com/tags/mongoose/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>发布你的第一个模块</title>
+    <link href="http://yoursite.com/2019/11/20/%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9D%97/"/>
+    <id>http://yoursite.com/2019/11/20/%E5%8F%91%E5%B8%83%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9D%97/</id>
+    <published>2019-11-20T08:13:49.000Z</published>
+    <updated>2020-05-08T09:49:10.936Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br><span class="line">npm login</span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span 
+      
+    
+    </summary>
+    
+    
+      <category term="server" scheme="http://yoursite.com/categories/server/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>restful API</title>
+    <link href="http://yoursite.com/2019/11/20/restful-API/"/>
+    <id>http://yoursite.com/2019/11/20/restful-API/</id>
+    <published>2019-11-20T07:01:01.000Z</published>
+    <updated>2020-05-08T09:49:10.933Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>demo地址: <a href="https://www.showdoc.cc/567957914338376?page_id=3352725715640070" target="_blank" rel="noopener">https://www.showdoc.cc/567957914338376?page_id=3352725715640070</a></p></blockquote><p>URI格式规范<br>URI(Uniform Resource Identifiers) 统一资源标示符<br>URL(Uniform Resource Locator) 统一资源定位符<br>URI的格式定义如下：<br>URI = scheme “://“ authority “/“ path [ “?” query ] [ “#” fragment ]</p><a id="more"></a><p>URL是URI的一个子集(一种具体实现)，对于REST API来说一个资源一般对应一个唯一的URI(URL)。在URI的设计中，我们会遵循一些规则，使接口看起透明易读，方便使用者调用。</p><p>关于分隔符“/”的使用<br>“/“分隔符一般用来对资源层级的划分，例如<br><a href="http://api.canvas.restapi.org/shapes/polygons/quadrilaterals/squares" target="_blank" rel="noopener">http://api.canvas.restapi.org/shapes/polygons/quadrilaterals/squares</a></p><p>对于REST API来说，”/“只是一个分隔符，并无其他含义。为了避免混淆，”/“不应该出现在URL的末尾。例如以下两个地址实际表示的都是同一个资源：<br><a href="http://api.canvas.restapi.org/shapes/" target="_blank" rel="noopener">http://api.canvas.restapi.org/shapes/</a><br><a href="http://api.canvas.restapi.org/shapes" target="_blank" rel="noopener">http://api.canvas.restapi.org/shapes</a></p><p>REST API对URI资源的定义具有唯一性，一个资源对应一个唯一的地址。为了使接口保持清晰干净，如果访问到末尾包含 “/“ 的地址，服务端应该301到没有 “/“的地址上。当然这个规则也仅限于REST API接口的访问，对于传统的WEB页面服务来说，并不一定适用这个规则。</p><p>URI中尽量使用连字符”-“代替下划线”_”的使用<br>连字符”-“一般用来分割URI中出现的字符串(单词)，来提高URI的可读性，例如：<br><a href="http://api.example.restapi.org/blogs/mark-masse/entries/this-is-my-first-post" target="_blank" rel="noopener">http://api.example.restapi.org/blogs/mark-masse/entries/this-is-my-first-post</a></p><p>使用下划线””来分割字符串(单词)可能会和链接的样式冲突重叠，而影响阅读性。但实际上，”-“和””对URL中字符串的分割语意上还是有些差异的：”-“分割的字符串(单词)一般各自都具有独立的含义，可参见上面的例子。而”_”一般用于对一个整体含义的字符串做了层级的分割，方便阅读，例如你想在URL中体现一个ip地址的信息：210_110_25_88 .</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol><li><a href="https://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">理解RESTful架构https://www.ruanyifeng.com/blog/2011/09/restful.html</a></li><li><a href="https://blog.csdn.net/qq_41606973/article/details/86352787" target="_blank" rel="noopener">https://blog.csdn.net/qq_41606973/article/details/86352787</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;demo地址: &lt;a href=&quot;https://www.showdoc.cc/567957914338376?page_id=3352725715640070&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.showdoc.cc/567957914338376?page_id=3352725715640070&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;URI格式规范&lt;br&gt;URI(Uniform Resource Identifiers) 统一资源标示符&lt;br&gt;URL(Uniform Resource Locator) 统一资源定位符&lt;br&gt;URI的格式定义如下：&lt;br&gt;URI = scheme “://“ authority “/“ path [ “?” query ] [ “#” fragment ]&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="server" scheme="http://yoursite.com/categories/server/"/>
+    
+    
+      <category term="api" scheme="http://yoursite.com/tags/api/"/>
+    
+      <category term="resetful" scheme="http://yoursite.com/tags/resetful/"/>
+    
+      <category term="接口规范" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>下班早一点--关于前端复用&amp;模块化的一点体会</title>
+    <link href="http://yoursite.com/2019/11/20/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    <id>http://yoursite.com/2019/11/20/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/</id>
+    <published>2019-11-20T05:02:12.000Z</published>
+    <updated>2020-05-09T01:05:44.518Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Dont-repeat-your-self"><a href="#Dont-repeat-your-self" class="headerlink" title="Dont repeat your self!"></a>Dont repeat your self!</h2><p>前端的复用以及模块化这是一个老生常谈的话题,有许多的前辈前仆后继的付出了大量的心血</p><p>比如 工具库,第三方包,开发框架, 还有一些大厂提供的解决方案(阿里飞冰)等等</p><p>从开发角度来讲</p><p>小到一个函数的封装,一个类的抽象, 一个外部文件的导入都是用来更好的复用, 最直接的收益就是节省了大量低价值,高重复的编码时间.让人们可以高效优质的完成工作,或者投入到更高层次的问题上(想到那句话: 人生苦短,我用 python)</p><a id="more"></a><p>其实,做技术最怕的就是重复自己,这意味着很慢的进步和提升,写代码也很忌重复的代码,一定要及早的认识,并围绕到这个问题,去改善自己的工作流和开发方式</p><h2 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h2><p>一定要有自己的项目模版或者叫脚手架,这是一个自己量身定制的项目框架,里面包含了必须的依赖,符合自己习惯的目录结构,还有一些预置的代码,这一环节做好能大幅度提升做项目的效率和心情</p><h2 id="业务组件"><a href="#业务组件" class="headerlink" title="业务组件"></a>业务组件</h2><p>封装自己的业务组件可以做一个自己的业务组件库,上传到 npm,以后方便复用</p><h2 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h2><h2 id="站在巨人肩膀上"><a href="#站在巨人肩膀上" class="headerlink" title="站在巨人肩膀上"></a>站在巨人肩膀上</h2><p>优秀的开源代码,一些好用的轮子都放在那里,大神们不断迭代的代码,比自己遇到需求就闭门造车要强大太多,只要你花些心思关注一下,你的工作就能带来质的飞跃.</p><p>不过,还是尽量要多看看源码是如何实现的,毕竟底层很重要或者业务特殊没有符合的轮子,开始要自己撸的</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Dont-repeat-your-self&quot;&gt;&lt;a href=&quot;#Dont-repeat-your-self&quot; class=&quot;headerlink&quot; title=&quot;Dont repeat your self!&quot;&gt;&lt;/a&gt;Dont repeat your self!&lt;/h2&gt;&lt;p&gt;前端的复用以及模块化这是一个老生常谈的话题,有许多的前辈前仆后继的付出了大量的心血&lt;/p&gt;&lt;p&gt;比如 工具库,第三方包,开发框架, 还有一些大厂提供的解决方案(阿里飞冰)等等&lt;/p&gt;&lt;p&gt;从开发角度来讲&lt;/p&gt;&lt;p&gt;小到一个函数的封装,一个类的抽象, 一个外部文件的导入都是用来更好的复用, 最直接的收益就是节省了大量低价值,高重复的编码时间.让人们可以高效优质的完成工作,或者投入到更高层次的问题上(想到那句话: 人生苦短,我用 python)&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="http://yoursite.com/categories/web/"/>
+    
+    
+      <category term="模块化" scheme="http://yoursite.com/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    
+      <category term="复用" scheme="http://yoursite.com/tags/%E5%A4%8D%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>程序员是可爱的人</title>
+    <link href="http://yoursite.com/2017/11/20/%E7%A8%8B%E5%BA%8F%E5%91%98%E6%98%AF%E5%8F%AF%E7%88%B1%E7%9A%84%E4%BA%BA/"/>
+    <id>http://yoursite.com/2017/11/20/%E7%A8%8B%E5%BA%8F%E5%91%98%E6%98%AF%E5%8F%AF%E7%88%B1%E7%9A%84%E4%BA%BA/</id>
+    <published>2017-11-20T08:38:38.000Z</published>
+    <updated>2020-05-08T09:49:10.941Z</updated>
+    
+    <content type="html"><![CDATA[<p>写blog沉淀自己的知识, 写心情来表达自己的感受<br>by: love901105~</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;写blog沉淀自己的知识, 写心情来表达自己的感受&lt;br&gt;by: love901105~&lt;/p&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="log" scheme="http://yoursite.com/categories/log/"/>
+    
+    
+  </entry>
+  
+</feed>
