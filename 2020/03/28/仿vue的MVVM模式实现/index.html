@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="coderQ-blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="demo在线地址: https:&#x2F;&#x2F;codesandbox.io&#x2F;embed&#x2F;like-vue-qs42n?fontsize=14&amp;amp;hidenavigation=1&amp;amp;theme=dark 分析12345678910111213141516171819let vm = new Vue(&amp;#123;        el: &quot;#app&quot;,        data: &amp;#123;">
+<meta name="keywords" content="vue,mvvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="仿vue的MVVM模式实现">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;28&#x2F;%E4%BB%BFvue%E7%9A%84MVVM%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0&#x2F;index.html">
+<meta property="og:site_name" content="coderQ-blog">
+<meta property="og:description" content="demo在线地址: https:&#x2F;&#x2F;codesandbox.io&#x2F;embed&#x2F;like-vue-qs42n?fontsize=14&amp;amp;hidenavigation=1&amp;amp;theme=dark 分析12345678910111213141516171819let vm = new Vue(&amp;#123;        el: &quot;#app&quot;,        data: &amp;#123;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;ae01.alicdn.com&#x2F;kf&#x2F;U299bf4c7980d42e39e325ac4c72c766d2.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ae01.alicdn.com&#x2F;kf&#x2F;Ue802cf0ff7ed4304b9d3f9fe09858113p.jpg">
+<meta property="og:updated_time" content="2020-05-08T09:49:10.934Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;ae01.alicdn.com&#x2F;kf&#x2F;U299bf4c7980d42e39e325ac4c72c766d2.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/28/%E4%BB%BFvue%E7%9A%84MVVM%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>仿vue的MVVM模式实现 | coderQ-blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">coderQ-blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一个前端的全栈之路</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-web">
+
+    <a href="/categories/web" rel="section"><i class="fa fa-fw fa-desktop"></i>前端</a>
+
+  </li>
+        <li class="menu-item menu-item-moblie">
+
+    <a href="/categories/moblie" rel="section"><i class="fa fa-fw fa-tablet"></i>移动端</a>
+
+  </li>
+        <li class="menu-item menu-item-server">
+
+    <a href="/categories/server" rel="section"><i class="fa fa-fw fa-server"></i>服务端</a>
+
+  </li>
+        <li class="menu-item menu-item-database">
+
+    <a href="/categories/database" rel="section"><i class="fa fa-fw fa-database"></i>数据库</a>
+
+  </li>
+        <li class="menu-item menu-item-log">
+
+    <a href="/categories/log" rel="section"><i class="fa fa-fw fa-file-text-o"></i>心情</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/28/%E4%BB%BFvue%E7%9A%84MVVM%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jfif">
+      <meta itemprop="name" content="CoderQiQin">
+      <meta itemprop="description" content="积累知识，记录点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="coderQ-blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          仿vue的MVVM模式实现
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-28 11:25:35" itemprop="dateCreated datePublished" datetime="2020-03-28T11:25:35+08:00">2020-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-08 17:49:10" itemprop="dateModified" datetime="2020-05-08T17:49:10+08:00">2020-05-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/28/%E4%BB%BFvue%E7%9A%84MVVM%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/28/%E4%BB%BFvue%E7%9A%84MVVM%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>demo在线地址: <a href="https://codesandbox.io/embed/like-vue-qs42n?fontsize=14&hidenavigation=1&theme=dark" target="_blank" rel="noopener">https://codesandbox.io/embed/like-vue-qs42n?fontsize=14&amp;hidenavigation=1&amp;theme=dark</a></p>
+</blockquote><p><img src="https://ae01.alicdn.com/kf/U299bf4c7980d42e39e325ac4c72c766d2.jpg" alt="https://ae01.alicdn.com/kf/U299bf4c7980d42e39e325ac4c72c766d2.jpg"></p><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">let vm = new Vue(&#123;</span><br><span class="line"><span class="symbol">        el:</span> <span class="string">"#app"</span>,</span><br><span class="line"><span class="symbol">        data:</span> &#123;</span><br><span class="line"><span class="symbol">          msg:</span> <span class="string">" 改变"</span>,</span><br><span class="line"><span class="symbol">          obj:</span> &#123;</span><br><span class="line"><span class="symbol">            title:</span> <span class="string">"&lt;strong&gt;仿写vue&lt;/strong&gt;"</span>,</span><br><span class="line"><span class="symbol">            o:</span> &#123;</span><br><span class="line"><span class="symbol">              name:</span> <span class="string">"asdasdas"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="symbol">        methods:</span> &#123;</span><br><span class="line">          handle() &#123;</span><br><span class="line">            console.log(this);</span><br><span class="line">            alert(<span class="number">123</span>);</span><br><span class="line">            this.msg = <span class="string">"shijiangaibiancanshu1"</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+
+<p>调用vue就是实例化一个<code>Vue</code>类的过程, vue的各个api继承自<code>Vue</code>类,option通过参数传入, 由于es5代码会比较啰嗦,采用es6方式, el是作用域的根节点,可以传入选择器或者<code>element</code>节点, data是响应的数据也是比较核心的部分,<br>可以看到首先判断元素绑定是否成功,除去数据代理先不讲,程序主要执行两个步骤,分别处理模版和数据:</p>
+<ol>
+<li>new Observer: 将整个数据data传入</li>
+<li>new Compile: 将根元素el传入</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vue</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(options) &#123;</span><br><span class="line">    <span class="keyword">this</span>.el = options.el;</span><br><span class="line">    <span class="keyword">this</span>.<span class="keyword">data</span> = options.<span class="keyword">data</span>;</span><br><span class="line">    <span class="keyword">this</span>.methods = options.methods;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.el) &#123;</span><br><span class="line">      <span class="comment">// 数据劫持</span></span><br><span class="line">      new Observer(<span class="keyword">this</span>.<span class="keyword">data</span>);</span><br><span class="line">      <span class="comment">// 数据代理</span></span><br><span class="line">      <span class="keyword">this</span>.proxy(<span class="keyword">this</span>.<span class="keyword">data</span>, <span class="keyword">this</span>);</span><br><span class="line">      <span class="comment">// 模版编译</span></span><br><span class="line">      new Compile(<span class="keyword">this</span>.el, <span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  proxy(<span class="keyword">data</span>, vm) &#123; <span class="comment">// 关于数据代理最后再讲</span></span><br><span class="line">    <span class="comment">// this.data.msg  &lt;=&gt; this.msg</span></span><br><span class="line">    Object.keys(<span class="keyword">data</span>).forEach(key =&gt; &#123;</span><br><span class="line">      Object.defineProperty(vm, key, &#123;</span><br><span class="line">        <span class="keyword">get</span>() &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">data</span>[key];</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">set</span>(newVal) &#123;</span><br><span class="line">          <span class="keyword">data</span>[key] = newVal;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个最基本的<code>MVVM</code>框架需要实现这几个模块: 数据劫持(observer), 模版编译(compile), 依赖收集(dep), 发布订阅(watcher,又称观察者), 代码都是比较常用的那类,难点在于设计模式的精巧和抽象,下面的图片,需要好好的理解</p>
+<p><img src="https://ae01.alicdn.com/kf/Ue802cf0ff7ed4304b9d3f9fe09858113p.jpg" alt="https://ae01.alicdn.com/kf/Ue802cf0ff7ed4304b9d3f9fe09858113p.jpg"></p>
+<p>右边部分我的理解大致是这样的: 在实例化时将数据传入类的内部,检测传参是否为对象,遍历传参对象的属性并递归嵌套对象,然后处理数据,关键api是es6的<code>Object.defineProperty</code><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">文档参考</a>,简单理解就是自定义对象属性,并通过getter和setter这个钩子进行我们的数据观察,(大喊一声:这里先占一个坑!)<br>在每一次遍历数据,劫持前,实例化一个依赖收集器, 该收集器具有添加观察者(watcher)存储,和通知更新两个方法,<br>在劫持数据的getter时收集器执行添加watcher, 在数据发生setter时,收集器通知更新</p>
+<h2 id="watcher"><a href="#watcher" class="headerlink" title="watcher"></a>watcher</h2><p>watcher类主要功能接收一个回调,和获取对象数据的新旧值比对,在发生改变的时候,触发回调的执行</p>
+<h2 id="模版编译compile"><a href="#模版编译compile" class="headerlink" title="模版编译compile"></a>模版编译compile</h2><p>模版编译是将根元素下的所有节点转换为文档片段<code>createDocumentFragment</code>提高性能,再插入根节点渲染,遍历文档片段下的每一个节点的nodeTye,区分是元素节点(如果是元素节点可能存在嵌套,递归处理)还是文本节点,拆分两种处理函数..<br>源码: </p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">class Compile &#123;</span><br><span class="line">  constructor(el, vm) &#123;</span><br><span class="line">    this.el = this.isElement(el) ? el : document.querySelector(el);</span><br><span class="line">    this.vm = vm;</span><br><span class="line">    let fragment = this.node2Fragment(this.el);</span><br><span class="line">    this.compile(fragment);</span><br><span class="line">    this.el.appendChild(fragment);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  isElement(el) &#123;</span><br><span class="line">    return el.nodeType === <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  node2Fragment(el) &#123;</span><br><span class="line">    let f = document.createDocumentFragment();</span><br><span class="line">    let firstChild;</span><br><span class="line"></span><br><span class="line">    while ((firstChild = el.firstChild)) &#123;</span><br><span class="line">      f.appendChild(firstChild);</span><br><span class="line">    &#125;</span><br><span class="line">    return f;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  compile(fragment) &#123;</span><br><span class="line">    let nodes = fragment.childNodes;</span><br><span class="line">    [...nodes].forEach(<span class="keyword">node</span> <span class="title">=&gt; &#123;</span></span><br><span class="line"><span class="title">      if</span> (this.isElement(<span class="keyword">node</span><span class="title">)) &#123;</span></span><br><span class="line"><span class="title">        this</span>.compileElement(<span class="keyword">node</span><span class="title">);</span></span><br><span class="line"><span class="title">        this</span>.compile(<span class="keyword">node</span><span class="title">);</span></span><br><span class="line"><span class="title">      &#125; else</span> &#123;</span><br><span class="line">        this.compileText(<span class="keyword">node</span><span class="title">);</span></span><br><span class="line"><span class="title">      &#125;</span></span><br><span class="line"><span class="title">    &#125;);</span></span><br><span class="line"><span class="title">  &#125;</span></span><br><span class="line"><span class="title"></span></span><br><span class="line"><span class="title">  compileElement</span>(<span class="keyword">node</span><span class="title">) &#123;</span></span><br><span class="line"><span class="title">    let</span> <span class="keyword">attributes</span> = <span class="keyword">node</span>.<span class="title">attributes</span>;</span><br><span class="line">    [...<span class="keyword">attributes</span>].forEach(attr =&gt; &#123;</span><br><span class="line">      let &#123; name, value &#125; = attr;</span><br><span class="line">      if (this.isDirective(name)) &#123;</span><br><span class="line">        let [, directive] = name.split(<span class="string">"-"</span>);</span><br><span class="line">        let [dirName, eventName] = directive.split(<span class="string">":"</span>);</span><br><span class="line">        // console.log(name, value, directive);</span><br><span class="line">        compileUtil[dirName](<span class="keyword">node</span><span class="title">, value</span>, this.vm, eventName);</span><br><span class="line">        <span class="keyword">node</span>.<span class="title">removeAttribute</span>(`v-$&#123;directive&#125;`);</span><br><span class="line">      &#125; else if (this.isEvent(name)) &#123;</span><br><span class="line">        let [, eventName] = name.split(<span class="string">":"</span>);</span><br><span class="line">        compileUtil[<span class="string">"on"</span>](<span class="keyword">node</span><span class="title">, value</span>, this.vm, eventName);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  compileText(<span class="keyword">node</span><span class="title">) &#123;</span></span><br><span class="line"><span class="title">    let</span> textContent = <span class="keyword">node</span>.<span class="title">textContent</span>;</span><br><span class="line">    if (/\&#123;\&#123;(.+?)\&#125;\&#125;/.test(textContent)) &#123;</span><br><span class="line">      compileUtil[<span class="string">"text"</span>](<span class="keyword">node</span><span class="title">, textContent</span>, this.vm);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  isDirective(name) &#123;</span><br><span class="line">    return name.startsWith(<span class="string">"v-"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  isEvent(name) &#123;</span><br><span class="line">    return name.startsWith(<span class="string">"@"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原创手打,留言支持一下吧~</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="CoderQiQin 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="CoderQiQin 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vue/" rel="tag"># vue</a>
+              <a href="/tags/mvvm/" rel="tag"># mvvm</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/03/28/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="mysql学习笔记">
+                  <i class="fa fa-chevron-left"></i> mysql学习笔记
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/04/24/%E5%B0%81%E8%A3%85%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BB%84%E4%BB%B6%E5%BA%93/" rel="prev" title="封装自己的组件库">
+                  封装自己的组件库 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watcher"><span class="nav-number">2.</span> <span class="nav-text">watcher</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模版编译compile"><span class="nav-number">3.</span> <span class="nav-text">模版编译compile</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CoderQiQin"
+      src="/images/avatar.jfif">
+  <p class="site-author-name" itemprop="name">CoderQiQin</p>
+  <div class="site-description" itemprop="description">积累知识，记录点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CoderQiQin521" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CoderQiQin521" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mailto:coderqiqin@aliyun.com" title="E-Mail → mailto:coderqiqin@aliyun.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/68670ad91c77" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;68670ad91c77" rel="noopener" target="_blank"><i class="fa fa-fw fa-leanpub"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/296670156" title="QQ → 296670156"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+      <!-- 音乐播放器 -->
+      <div>
+        
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52
+    src="//music.163.com/outchain/player?type=2&id=578090&auto=1&height=32"></iframe>
+        
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderQiQin</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'md97uBfDKbzgEjxvqn2FyDWf-gzGzoHsz',
+    appKey: 'rYE4NAuhwg9KRy3DU81y4rin',
+    placeholder: "请在此输入您的留言",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
