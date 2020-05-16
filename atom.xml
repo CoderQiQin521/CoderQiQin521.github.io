@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-12T07:39:01.572Z</updated>
+  <updated>2020-05-16T10:15:23.413Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nodejs开发实战心得</title>
+    <link href="http://yoursite.com/2020/05/16/Nodejs%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%E5%BF%83%E5%BE%97/"/>
+    <id>http://yoursite.com/2020/05/16/Nodejs%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%E5%BF%83%E5%BE%97/</id>
+    <published>2020-05-16T10:14:23.000Z</published>
+    <updated>2020-05-16T10:15:23.413Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="理解-nodejs"><a href="#理解-nodejs" class="headerlink" title="理解 nodejs"></a>理解 nodejs</h1><p>nodejs 不是框架也不是语言,它是基于<code>chrome</code>V8 引擎开发的 javascript 运行时环境,可以编写 js 获得系统能力运行于服务端.<br>nodejs 的特点是 无阻塞 io 和事件驱动,优点是高性能高并发,扩展性强,适合 web 开发(网络请求,数据库读写,资源加载…都属于 io,借助 v8 引擎 nodejs 也是动态语言里最快的语言)</p><a id="more"></a><h1 id="模块化与原生模块"><a href="#模块化与原生模块" class="headerlink" title="模块化与原生模块"></a>模块化与原生模块</h1><p>服务端代码抽象度比较高,一些通用的功能很适合提取成模块复用,极大地提高开发效率和质量,由于早期 js 没有模块化能力,所以社区推出了 cmd,amd,commonjs 等模块化规范,nodejs 采用了 <a href="http://www.commonjs.org/" target="_blank" rel="noopener">commonjs</a> 规范.<br>commonjs 的模块加载是动态引用,require,module,export 等对象</p><p>npm 是全球最大的前后端模块仓库,有大量的模块可使用.在 nodejs 推出后, 很快在服务端占据了空间,,同时也前端带来了 webpack,组件化开发…这些很好的生态, 前端发到了质变,从刀耕火种般落后进入到工程和自动化发展的黑马</p><p>系统能力<br><a href="http://nodejs.cn/api/" target="_blank" rel="noopener">文档</a><br>有些强大而常用的模块最好能掌握 fs, http,path,buffer,process,url,util</p><h1 id="rpc-通信"><a href="#rpc-通信" class="headerlink" title="rpc 通信"></a>rpc 通信</h1><p>大型应用和企业里服务端经过许多年开发迭代,已经发展成枝繁叶茂的系统了, 很难轻易切换语言重构,不过 nodejs 优点也很突出,天生支持高并发 io 很适合做 web 的 bff 层, 开发和沟通成本小,具有同构能力,一些新的,小的服务就可以用 node 方案解决.<br>rpc 与 http 区别</p><p>http 是应用层,底层也是 tcp 封装的,建立连接需要三次握手,四次挥手,传输的数据是文本格式,性能比 rpc 慢很多<br>rpc 属于网络层 tcp 协议,也叫远程过程调用,传送的是二进制格式,使用 nodejs 的 net 模块很容易实现 rpc.<br>server 端</p><figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">const</span> <span class="variable">net</span> = <span class="function"><span class="title">require</span>(<span class="string">'net'</span>)</span></span><br></pre></td></tr></table></figure><p>client 端</p><h1 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;理解-nodejs&quot;&gt;&lt;a href=&quot;#理解-nodejs&quot; class=&quot;headerlink&quot; title=&quot;理解 nodejs&quot;&gt;&lt;/a&gt;理解 nodejs&lt;/h1&gt;&lt;p&gt;nodejs 不是框架也不是语言,它是基于&lt;code&gt;chrome&lt;/code&gt;V8 引擎开发的 javascript 运行时环境,可以编写 js 获得系统能力运行于服务端.&lt;br&gt;nodejs 的特点是 无阻塞 io 和事件驱动,优点是高性能高并发,扩展性强,适合 web 开发(网络请求,数据库读写,资源加载…都属于 io,借助 v8 引擎 nodejs 也是动态语言里最快的语言)&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="server" scheme="http://yoursite.com/categories/server/"/>
+    
+    
+      <category term="node" scheme="http://yoursite.com/tags/node/"/>
+    
+      <category term="rpc" scheme="http://yoursite.com/tags/rpc/"/>
+    
+  </entry>
   
   <entry>
     <title>关于消费主义与中年危机的一点想法</title>
